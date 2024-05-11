@@ -5,9 +5,10 @@ import { ReactComponent as IconCart3 } from "bootstrap-icons/icons/cart3.svg";
 
 export default function CheckoutView({ shoppingCart }) {
   const products = Array.from(shoppingCart.products.values());//your code
-  const count = products.map(wrapper => wrapper.count);
-  const total = products.size > 0 ? products.map(product => product.price*count).reduce((prev, curr) => prev + curr) : 0;
+  const count = products.length > 0 ? products.map(wrapper => wrapper.count).reduce((prev, curr) => prev + curr) : 0 ;
+  const total = count > 0 ? products.map(product => product.product.price*product.count).reduce((prev, curr) => prev + curr) : 0;
   const totalCost = (Math.round(total*100)/100).toFixed(2);
+  //const totalCost=total;
   return (
     <>
       <div className="bg-secondary border-top p-4 text-white mb-3">
