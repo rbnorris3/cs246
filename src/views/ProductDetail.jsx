@@ -28,29 +28,28 @@ const ShippingReturns = lazy(() =>
 );
 
 const addProduct = (shoppingCart, product, updateCount) => {
-  //Start here
+  // START OF NEW CODE
   console.log("Product Detail addProduct called");
   shoppingCart.addProduct(product);
   getNewCount(shoppingCart, updateCount);
-  //End here
-  
+  // END OF NEW CODE
 }
 
 const removeProduct = (shoppingCart, product, updateCount) => {
-  //Start here
+  // START OF NEW CODE
   console.log("Product Detail removeProduct called");
   shoppingCart.removeProduct(product._id);
   getNewCount(shoppingCart, updateCount);
-  //End here
+  // END OF NEW CODE
 }
 
 const getNewCount = (shoppingCart, updateCount) => {
-  //Start here
+  // START OF NEW CODE
   const total = shoppingCart.products.size > 0 
   ? Array.from(shoppingCart.products.values()).map(product => product.count).reduce((prev, curr) => prev + curr) 
   : 0;
   updateCount(total);
-  //End here
+  // END OF NEW CODE
 }
 
 export default function ProductDetail({allproducts, shoppingCart, updateCount}) {

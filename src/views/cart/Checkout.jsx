@@ -4,10 +4,12 @@ import { ReactComponent as IconCreditCard2Front } from "bootstrap-icons/icons/cr
 import { ReactComponent as IconCart3 } from "bootstrap-icons/icons/cart3.svg";
 
 export default function CheckoutView({ shoppingCart }) {
-  const products = Array.from(shoppingCart.products.values());//your code
+  // START OF NEW CODE
+  const products = Array.from(shoppingCart.products.values());
   const count = products.length > 0 ? products.map(wrapper => wrapper.count).reduce((prev, curr) => prev + curr) : 0 ;
   const total = count > 0 ? products.map(product => product.product.price*product.count).reduce((prev, curr) => prev + curr) : 0;
   const totalCost = (Math.round(total*100)/100).toFixed(2);
+  // END OF NEW CODE
 
   return (
     <>

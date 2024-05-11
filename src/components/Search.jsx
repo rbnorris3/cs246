@@ -12,11 +12,14 @@ const Search = ({allproducts, setSearchData}) => {
     const navigation = useNavigate();
 
     const update = (event) => { // const result = allproducts.filter(product => product.name.toLowerCase().includes(searchVal.toLowerCase()));
+        // START OF NEW CODE
         console.log("Search value: ", searchVal);
         const names =  allproducts.filter(product => product.name.toLowerCase().includes(searchVal.toLowerCase()));
         const categories = allproducts.filter(product => product.category.toLowerCase().includes(searchVal.toLowerCase()));
         const description = allproducts.filter(product => product.description.toLowerCase().includes(searchVal.toLowerCase()));
         const result = [...new Set([...names, ...categories, ...description])];//Your code 
+        // END OF NEW CODE
+
         if (result.length < 1) {
             setShow(true);
             hidePopover(2);

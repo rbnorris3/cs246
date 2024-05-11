@@ -17,42 +17,42 @@ const onSubmitApplyCouponCode = async values => {
 };
 
 const addProduct = (shoppingCart, shoppingCartproduct, updateCount) => {
-  //Start here
+  // START OF NEW CODE
   shoppingCart.addProduct(shoppingCartproduct.product);
   getNewCount(shoppingCart, updateCount);
-  //End here
+  // END OF NEW CODE
 }
 
 const removeProduct = (shoppingCart, shoppingCartproduct, updateCount) => {
-  //Start here
+  // START OF NEW CODE
   shoppingCart.removeProduct(shoppingCartproduct.product._id);
   getNewCount(shoppingCart, updateCount);
-  //End here
+  // END OF NEW CODE
 }
 
 const removeAllProduct = (shoppingCart, shoppingCartproduct, updateCount) => {
-  //Start here
+  // START OF NEW CODE
   shoppingCart.removeAllProduct(shoppingCartproduct.product._id);
   getNewCount(shoppingCart, updateCount);
-  //End here
+  // END OF NEW CODE
 }
 
 const getNewCount = (shoppingCart, updateCount) => {
-  //Start here
+  // START OF NEW CODE
   const total = shoppingCart.products.size > 0
   ? Array.from(shoppingCart.products.values()).map(product => product.count).reduce((prev, curr) => prev + curr)
   : 0;
   updateCount(total);
-  //End here
+  // END OF NEW CODE
 }
 
 const getTotalCost = (shoppingCart) => {
-  //Start here
+  // START OF NEW CODE
   const total = shoppingCart.products.size > 0
   ? Array.from(shoppingCart.products.values()).map(product => product.product.price*product.count).reduce((prev, curr) => prev + curr)
     : 0;
   return (Math.round(total*100)/100).toFixed(2);
-  //End here
+  // END OF NEW CODE
 }
 
 const ProductList = ({shoppingCart, updateCount}) => {

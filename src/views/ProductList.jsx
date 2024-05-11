@@ -6,10 +6,9 @@ import { useParams } from "react-router";
 export default function ProductList({ allproducts, match }) {
   const params = useParams();
   const cat = params.cat || "Animal";
-  //Your code starts here
-  // const products = [];
+  // START  OF NEW CODE
   const products = (allproducts) ? allproducts.filter(item => item.category === cat) : [];
-  //Your code ends here
+  // END OF NEW CODE
 
   return (
     <>
