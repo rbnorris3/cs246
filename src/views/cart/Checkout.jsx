@@ -8,7 +8,7 @@ export default function CheckoutView({ shoppingCart }) {
   const count = products.length > 0 ? products.map(wrapper => wrapper.count).reduce((prev, curr) => prev + curr) : 0 ;
   const total = count > 0 ? products.map(product => product.product.price*product.count).reduce((prev, curr) => prev + curr) : 0;
   const totalCost = (Math.round(total*100)/100).toFixed(2);
-  //const totalCost=total;
+
   return (
     <>
       <div className="bg-secondary border-top p-4 text-white mb-3">
