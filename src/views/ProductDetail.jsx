@@ -29,20 +29,27 @@ const ShippingReturns = lazy(() =>
 
 const addProduct = (shoppingCart, product, updateCount) => {
   //Start here
-
+  console.log("Product Detail addProduct called");
+  shoppingCart.addProduct(product);
+  getNewCount(shoppingCart, updateCount);
   //End here
   
 }
 
 const removeProduct = (shoppingCart, product, updateCount) => {
   //Start here
-
+  console.log("Product Detail removeProduct called");
+  shoppingCart.removeProduct(product._id);
+  getNewCount(shoppingCart, updateCount);
   //End here
 }
 
 const getNewCount = (shoppingCart, updateCount) => {
   //Start here
-
+  const total = shoppingCart.products.size > 0 
+  ? Array.from(shoppingCart.products.values()).map(product => product.count).reduce((prev, curr) => prev + curr) 
+  : 0;
+  updateCount(total);
   //End here
 }
 
@@ -69,11 +76,11 @@ export default function ProductDetail({allproducts, shoppingCart, updateCount}) 
 
             </div>
             <div className="col-md-6 mt-4 mr-6">
-              <h1 className="h5 d-inline mr-2" className="s">{filtered.name}</h1>
+              <h1 className="h5 d-inline mr-2 s">{filtered.name}</h1>
 
 
               <div className="m-4 ml-5 ">
-                <span className="font-weight-bold h2 mr-2" className="s" >${filtered.price}</span>
+                <span className="font-weight-bold h2 mr-2 s">${filtered.price}</span>
               </div>
 
 
@@ -130,10 +137,10 @@ export default function ProductDetail({allproducts, shoppingCart, updateCount}) 
                 </button>
               </div>
               <div>
-                <p className="font-weight-bolder mb-2 small" className="s">
+                <p className="font-weight-bolder mb-2 small s">
                   Product Highlights
                 </p>
-                <ul className="small" className='s'>
+                <ul className="small s">
                   <li >  Handmade</li>
                   <li>Material: paper,glue</li>
                   <li>

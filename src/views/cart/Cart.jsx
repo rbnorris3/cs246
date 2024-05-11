@@ -18,31 +18,40 @@ const onSubmitApplyCouponCode = async values => {
 
 const addProduct = (shoppingCart, shoppingCartproduct, updateCount) => {
   //Start here
-
+  shoppingCart.addProduct(shoppingCartproduct.product);
+  getNewCount(shoppingCart, updateCount);
   //End here
 }
 
 const removeProduct = (shoppingCart, shoppingCartproduct, updateCount) => {
   //Start here
-
+  shoppingCart.removeProduct(shoppingCartproduct.product._id);
+  getNewCount(shoppingCart, updateCount);
   //End here
 }
 
 const removeAllProduct = (shoppingCart, shoppingCartproduct, updateCount) => {
   //Start here
-
+  shoppingCart.removeAllProduct(shoppingCartproduct.product._id);
+  getNewCount(shoppingCart, updateCount);
   //End here
 }
 
 const getNewCount = (shoppingCart, updateCount) => {
   //Start here
-
+  const total = shoppingCart.products.size > 0
+  ? Array.from(shoppingCart.products.values()).map(product => product.count).reduce((prev, curr) => prev + curr)
+  : 0;
+  updateCount(total);
   //End here
 }
 
 const getTotalCost = (shoppingCart) => {
   //Start here
-
+  const total = shoppingCart.products.size > 0
+  ? Array.from(shoppingCart.products.values()).map(product => product.product.price*product.count).reduce((prev, curr) => prev + curr)
+    : 0;
+  return total;
   //End here
 }
 

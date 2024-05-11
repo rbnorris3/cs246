@@ -4,9 +4,9 @@ import { ReactComponent as IconCreditCard2Front } from "bootstrap-icons/icons/cr
 import { ReactComponent as IconCart3 } from "bootstrap-icons/icons/cart3.svg";
 
 export default function CheckoutView({ shoppingCart }) {
-  const products = [];//your code
-  const count = 0;//your code
-  const totalCost = 0;//your code
+  const products = Array.from(shoppingCart.products.values());//your code
+  const count = products.map(wrapper => wrapper.count);
+  const totalCost =  parseFloat(products.map(wrapper  => wrapper .product.price * wrapper.count)).toFixed(2);
   return (
     <>
       <div className="bg-secondary border-top p-4 text-white mb-3">
