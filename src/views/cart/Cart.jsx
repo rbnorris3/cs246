@@ -51,7 +51,7 @@ const getTotalCost = (shoppingCart) => {
   const total = shoppingCart.products.size > 0
   ? Array.from(shoppingCart.products.values()).map(product => product.product.price*product.count).reduce((prev, curr) => prev + curr)
     : 0;
-  return total;
+  return (Math.round(total*100)/100).toFixed(2);
   //End here
 }
 
