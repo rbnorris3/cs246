@@ -5,7 +5,7 @@ import { ReactComponent as IconStarFill } from "bootstrap-icons/icons/star-fill.
 const CardFeaturedProduct = (props) => {
   const products = props.data;
   return (
-    <div className="card mb-3 mt-3" className="c">
+    <div className="card mb-3 mt-3 c">
       <div className="card-header font-weight-bold text-uppercase">
         Featured Products
       </div>
@@ -19,7 +19,7 @@ const CardFeaturedProduct = (props) => {
               <img src={'/'+ product.image} className="img-fluid" alt="..." />
             </div>
             <div className="col-md-8">
-              <h6 className="text-capitalize mt-2" className="j">
+              <h6 className="text-capitalize mt-2 j">
                 <Link to={"/product/detail/" + product._id} className="text-decoration-none">
                   {product.name}
                 </Link>
