@@ -7,7 +7,7 @@ export default function ProductList({ allproducts, match }) {
   const params = useParams();
   const cat = params.cat || "Animal";
   // START  OF NEW CODE
-  const products = (allproducts) ? allproducts.filter(item => item.category === cat) : [];
+  const products = (allproducts) ? allproducts.filter(product => product.category === cat) : [];
   // END OF NEW CODE
 
   return (
