@@ -45,9 +45,8 @@ const removeProduct = (shoppingCart, product, updateCount) => {
 
 const getNewCount = (shoppingCart, updateCount) => {
   // START OF NEW CODE
-  const total = shoppingCart.products.size > 0 
-  ? Array.from(shoppingCart.products.values()).map(product => product.count).reduce((prev, curr) => prev + curr) 
-  : 0;
+  const total = shoppingCart.products.size > 0 ?
+    Array.from(shoppingCart.products.values()).map(product => product.count).reduce((prev, curr) => prev + curr) : 0 ;
   updateCount(total);
   // END OF NEW CODE
 }
